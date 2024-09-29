@@ -7,8 +7,8 @@ auto main(int argc, char* argv[]) -> int
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    engine.addImportPath("qrc:/qml");
-    engine.addImportPath("qrc:/qml/UILibrary");
+    engine.addImportPath("qrc:/src/qml");
+    engine.addImportPath("qrc:/src/qml/UILibrary");
 
     const QUrl url("qrc:/main.qml");
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, &app, [url](QObject* obj, const QUrl& objUrl) {

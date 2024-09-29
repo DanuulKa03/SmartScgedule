@@ -55,7 +55,7 @@ ApplicationWindow {
         }
 
         Component.onCompleted: {
-            contentFrame.push("qrc:/qml/Pages/Splash/SplashPage.qml");
+            contentFrame.push("qrc:/src/qml/Pages/Splash/SplashPage.qml");
         }
 
         onCurrentItemChanged: {

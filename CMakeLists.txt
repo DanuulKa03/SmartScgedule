@@ -28,8 +28,8 @@ else()
     )
 endif()
 
-list(APPEND QML_DIRS "${CMAKE_SOURCE_DIR}/qml")
-list(APPEND QML_DIRS "${CMAKE_SOURCE_DIR}/qml/UILibrary")
+list(APPEND QML_DIRS "${CMAKE_SOURCE_DIR}/src/qml")
+list(APPEND QML_DIRS "${CMAKE_SOURCE_DIR}/src/qml/UILibrary")
 list(REMOVE_DUPLICATES QML_DIRS)
 set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "QML import paths")
 

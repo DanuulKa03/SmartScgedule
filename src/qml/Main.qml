@@ -1,6 +1,6 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.15
-import QtQuick.Window 2.2
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Window
 
 import Common 1.0 as Common
 import Components 1.0 as Components
@@ -8,14 +8,12 @@ import Components 1.0 as Components
 ApplicationWindow {
     id: applicationWindow
 
-    visible: true
-
-    width: Common.Consts.screenWidth
-    height: Common.Consts.screenHeight
-
-    title: "Architectural-Template-Qt-QML"
-
     property bool headerVisible: true
+
+    height: Common.Consts.screenHeight
+    title: "Architectural-Template-Qt-QML"
+    visible: true
+    width: Common.Consts.screenWidth
 
     Component.onCompleted: {
         Common.Consts.target = topPanel.container;
@@ -23,57 +21,49 @@ ApplicationWindow {
 
     Components.TopPanel {
         id: topPanel
-
-        anchors {
-            top: parent.top
-            left: parent.left
-            right: parent.right
-        }
+        height: applicationWindow.headerVisible ? 150 * Common.Consts.yCoord : 0
+        title: contentFrame.currentItem.pageName ? contentFrame.currentItem.pageName : ""
+        visible: applicationWindow.headerVisible
 
         onBack: {
             contentFrame.pop();
         }
-
-        onNext: (page) => {
+        onNext: page => {
             contentFrame.push(page);
         }
 
-        height: applicationWindow.headerVisible ? 150 * Common.Consts.yCoord : 0
-        visible: applicationWindow.headerVisible
-
-        title: contentFrame.currentItem.pageName ? contentFrame.currentItem.pageName : ""
-    } // Components.TopPanel
-
-    StackView {
-        id: contentFrame
-
         anchors {
-            top: topPanel.bottom
             left: parent.left
             right: parent.right
-            bottom: parent.bottom
+            top: parent.top
         }
-
+    } // Components.TopPanel
+    StackView {
+        id: contentFrame
         Component.onCompleted: {
             contentFrame.push("qrc:/src/qml/Pages/Splash/SplashPage.qml");
         }
-
         onCurrentItemChanged: {
             contentFrame.currentItem.forceActiveFocus(Qt.MouseFocusReason);
         }
 
+        anchors {
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+            top: topPanel.bottom
+        }
         Connections {
-            target: contentFrame.currentItem
-
             function onBack() {
                 contentFrame.pop();
             }
-
             function onNext(page) {
                 contentFrame.push(page);
             }
 
             // дополнительные функции перехода между страницами
+
+            target: contentFrame.currentItem
         } // Connections
     } // StackView
 } // ApplicationWindow

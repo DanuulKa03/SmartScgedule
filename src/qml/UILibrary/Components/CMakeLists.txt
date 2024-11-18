@@ -14,6 +14,6 @@ set(resource_files
 qt_add_qml_module(ComponentsLib
         URI Components
         VERSION 1.0
-        QML_FILES ${plain_qml_files}
         RESOURCES ${resource_files}
+        QML_FILES ${plain_qml_files}
 )

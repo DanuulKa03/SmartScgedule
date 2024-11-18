@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(calqlatr LANGUAGES CXX)
+project(smartscgedule LANGUAGES CXX)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick QuickControls2)
 
@@ -10,17 +10,15 @@ qt_standard_project_setup(REQUIRES 6.5)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-qt_add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE
+qt_add_executable(${PROJECT_NAME}
         main.cpp
 )
 
-# Register QML import paths for code completion
-list(APPEND QML_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/src/qml/Common")
-list(APPEND QML_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/src/qml/Pages")
-list(APPEND QML_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/src/qml/UILibrary/Components")
-list(APPEND QML_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/src/qml/UILibrary/Forms")
-list(REMOVE_DUPLICATES QML_DIRS)
-set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "QML import paths" FORCE)
+set_target_properties(${PROJECT_NAME} PROPERTIES
+        WIN32_EXECUTABLE TRUE
+        MACOSX_BUNDLE TRUE
+        MACOSX_BUNDLE_GUI_IDENTIFIER "io.qt.examples.smartscgedule"
+)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
         Qt6::Core
@@ -35,7 +33,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 )
 
 qt_add_qml_module(${PROJECT_NAME}
-        URI demos.calqlatr
+        URI demos.smartscgedule
         VERSION 1.0
         QML_FILES src/qml/Main.qml
 )
@@ -46,17 +44,12 @@ add_subdirectory(src/qml/UILibrary/Components)
 add_subdirectory(src/qml/UILibrary/Forms)
 
 if (ANDROID)
+    set(CMAKE_ANDROID_ARCH_ABI "x86_64")
     set_target_properties(${PROJECT_NAME}
-            PROPERTIES
+        PROPERTIES
             QT_ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/android
             QT_ANDROID_TARGET_SDK_VERSION "33")
 endif ()
-
-install(TARGETS ${PROJECT_NAME}
-        BUNDLE DESTINATION .
-        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-)
 
 qt_generate_deploy_qml_app_script(
         TARGET ${PROJECT_NAME}

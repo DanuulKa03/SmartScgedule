@@ -41,7 +41,7 @@ ApplicationWindow {
     StackView {
         id: contentFrame
         Component.onCompleted: {
-            contentFrame.push("qrc:/src/qml/Pages/Splash/SplashPage.qml");
+            contentFrame.push("qrc:/qt/qml/Pages/Splash/SplashPage.qml");
         }
         onCurrentItemChanged: {
             contentFrame.currentItem.forceActiveFocus(Qt.MouseFocusReason);

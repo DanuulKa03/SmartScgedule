@@ -1,7 +1,6 @@
 pragma Singleton
 
 import QtQuick
-import QtQuick.Window
 
 QtObject {
     id: consts
@@ -9,8 +8,8 @@ QtObject {
     readonly property int mockupScreenWidth: 1200
     readonly property int mockupScreenHeight: 800
 
-    readonly property int screenWidth: 1200 // Screen.width
-    readonly property int screenHeight: 800 //Screen.height
+    readonly property int screenWidth: Screen.width
+    readonly property int screenHeight: Screen.height
 
     readonly property real xCoord: mockupScreenWidth / screenWidth
     readonly property real yCoord:  mockupScreenHeight / screenHeight

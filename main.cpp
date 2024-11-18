@@ -8,20 +8,16 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication::setOrganizationName("QtProject");
-    QCoreApplication::setApplicationName("Calqlatr");
+    QCoreApplication::setApplicationName("SmartScgedule");
 
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    engine.addImportPath("qrc:/src/qml/Common");
-    engine.addImportPath("qrc:/src/qml/Pages");
-    engine.addImportPath("qrc:/src/qml/UILibrary/Components");
-    engine.addImportPath("qrc:/src/qml/UILibrary/Forms");
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed,
             &app, []() { QCoreApplication::exit(-1); },
             Qt::QueuedConnection);
-    engine.loadFromModule("demos.calqlatr", "Main");
+    engine.loadFromModule("demos.smartscgedule", "Main");
 
     return app.exec();
 }

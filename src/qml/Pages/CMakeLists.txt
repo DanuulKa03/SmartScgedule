@@ -6,18 +6,19 @@ target_link_libraries(PagesLib PRIVATE Qt6::Quick Qt6::QuickControls2)
 
 set(plain_qml_files
     Login/AuthenticationPage.qml
+    Login/AuthenticationPage_Form.ui.qml
+
     Menu/MainMenuPage.qml
+    Menu/MainMenuPage_Form.ui.qml
+    Menu/WelcomePage.qml
+    Menu/WelcomePage_Form.ui.qml
+
     Splash/SplashPage.qml
+    Splash/SplashPage_Form.ui.qml
 )
 
 set(qml_singletons
     PageFactory.qml
-)
-
-set(resource_files
-    Login/AuthenticationPage_Form.ui.qml
-    Menu/MainMenuPage_Form.ui.qml
-    Splash/SplashPage_Form.ui.qml
 )
 
 set_source_files_properties(${qml_singletons}
@@ -27,6 +28,5 @@ set_source_files_properties(${qml_singletons}
 qt_add_qml_module(PagesLib
     URI Pages
     VERSION 1.0
-    RESOURCES ${resource_files}
     QML_FILES ${plain_qml_files} ${qml_singletons}
 )

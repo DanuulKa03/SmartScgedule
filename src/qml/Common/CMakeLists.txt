@@ -7,6 +7,7 @@ set(qml_singletons
     Colors.qml
     Consts.qml
     Enums.qml
+    Fonts.qml
 )
 
 set_source_files_properties(${qml_singletons}

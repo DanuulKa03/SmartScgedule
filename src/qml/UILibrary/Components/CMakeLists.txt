@@ -4,11 +4,13 @@ set_target_properties(ComponentsLib PROPERTIES AUTOMOC ON)
 target_link_libraries(ComponentsLib PRIVATE Qt6::Quick Qt6::QuickControls2)
 
 set(plain_qml_files
-        TopPanel.qml
+    FooterPanel.qml
+    TopPanel.qml
 )
 
 set(resource_files
-        TopPanel_Form.ui.qml
+    FooterPanel_Form.ui.qml
+    TopPanel_Form.ui.qml
 )
 
 qt_add_qml_module(ComponentsLib

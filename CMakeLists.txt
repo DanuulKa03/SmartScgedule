@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.16)
-project(smartscgedule LANGUAGES CXX)
+project(SmartSchedule LANGUAGES CXX)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick QuickControls2)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-qt_standard_project_setup(REQUIRES 6.5)
+qt_standard_project_setup(REQUIRES 6.8)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -14,10 +14,22 @@ qt_add_executable(${PROJECT_NAME}
         main.cpp
 )
 
+
+list(APPEND QML_DIRS "${CMAKE_SOURCE_DIR}/qml")
+list(APPEND QML_DIRS "${CMAKE_SOURCE_DIR}/qml/UILibrary")
+list(REMOVE_DUPLICATES QML_DIRS)
+set(QML_IMPORT_PATH "${QML_DIRS}"
+    CACHE STRING "QML import paths"
+    FORCE
+)
+
+set(QT_QML_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml)
+set(QT_QML_GENERATE_QMLLS_INI ON)
+
 set_target_properties(${PROJECT_NAME} PROPERTIES
         WIN32_EXECUTABLE TRUE
         MACOSX_BUNDLE TRUE
-        MACOSX_BUNDLE_GUI_IDENTIFIER "io.qt.examples.smartscgedule"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "SmartSchedule"
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
@@ -33,9 +45,22 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 )
 
 qt_add_qml_module(${PROJECT_NAME}
-        URI demos.smartscgedule
+        URI SmartSchedule
         VERSION 1.0
-        QML_FILES src/qml/Main.qml
+        QML_FILES
+            src/qml/Main.qml
+
+            src/qml/Styles/SmartScheduleStyle/Label.qml
+
+        RESOURCES
+            res/icons/footer/alarm-icon.svg
+            res/icons/footer/calendar-icon.svg
+            res/icons/footer/home-icon.svg
+            res/icons/footer/setting-icon.svg
+
+            res/fonts/Inter.ttf
+
+            qtquickcontrols2.conf
 )
 
 add_subdirectory(src/qml/Common)

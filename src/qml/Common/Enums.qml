@@ -8,7 +8,8 @@ QtObject {
     enum PageEnumeration {
         SPLASH_PAGE = 0,
         AUTHENTICATION_PAGE,
-        MAIN_MENU_PAGE
+        MAIN_MENU_PAGE,
+        WELCOME_PAGE
         // ...
     }
 

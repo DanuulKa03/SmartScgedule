@@ -1,5 +1,4 @@
 import QtQuick
-import QtQuick.Controls
 
 import Common 1.0 as Common
 
@@ -23,8 +22,10 @@ Item {
         id: bodyItem
 
         anchors {
-            fill: parent
-            topMargin: 50 * Common.Consts.yCoord
+            top: parent.top
+            left: parent.left
+            right: parent.right
+            bottom: footerArea.top
         }
     } // Item
 

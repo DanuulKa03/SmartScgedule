@@ -7,19 +7,20 @@ import Forms 1.0 as Forms
 
 Forms.BaseForm {
     id: formSplashPage
-    pageName: qsTr("Старницы приветствия")
 
     signal splashPageClicked()
+
+    pageName: qsTr("Старницы приветствия")
 
     content: Label {
         id: greetingLabel
 
         anchors.fill: parent
 
-        horizontalAlignment: Qt.AlignHCenter
-        verticalAlignment: Qt.AlignVCenter
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
 
-        text: qsTr("Приветствие...")
+        text: qsTr("ПУКПУКПУКПУК...")
 
         font.pixelSize: 40 * Common.Consts.fontSize
 

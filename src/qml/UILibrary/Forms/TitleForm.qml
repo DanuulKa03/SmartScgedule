@@ -3,17 +3,20 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 import Common 1.0 as Common
-import Forms 1.0 as Forms
 
-Forms.BaseForm  {
+BaseForm  {
     id: titleForm
 
     property alias titleText: title.text
+    property alias smallDescriptionText: smallDescription.text
+
+    property bool isSmallDescription: false
 
     QtObject {
         id: internal
 
         property color titleColor: "#78D6EB"
+        property color smallDescriptionColor: "#538B95"
     }
 
     property alias content: contentLayout.children
@@ -21,11 +24,7 @@ Forms.BaseForm  {
     content: ColumnLayout {
         id: contentLayout
 
-        anchors {
-            top: parent.top
-            left: parent.left
-            right: parent.right
-        }
+        anchors.fill: parent
 
         anchors.margins: 20 * Common.Consts.radialSize
         spacing: 20 * Common.Consts.yCoord
@@ -44,6 +43,22 @@ Forms.BaseForm  {
             }
             wrapMode: Text.WordWrap
         }
+    }
+
+    // Маленькое описание снизу
+    Label {
+        id: smallDescription
+
+        visible: titleForm.isSmallDescription
+        width: titleForm.width * 0.75
+
+        color: internal.smallDescriptionColor
+        font {
+            bold: true
+            family: Common.Fonts.family
+            pixelSize: 14 * Common.Consts.fontSize
+        }
+        wrapMode: Text.WordWrap
     }
 }
 

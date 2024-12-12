@@ -3,9 +3,8 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 import Common 1.0 as Common
-import Forms 1.0 as Forms
 
-Forms.BaseForm {
+BaseForm {
     id: twoButtonsForm
 
     signal leftButtonClicked()

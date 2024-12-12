@@ -27,7 +27,7 @@ Forms.TitleForm {
         Label {
 
             Layout.fillWidth: true
-            Layout.preferredHeight: implicitHeight
+            Layout.maximumHeight: implicitHeight
 
             color: internal.titleColor
             font {
@@ -40,8 +40,8 @@ Forms.TitleForm {
         },
         Label {
 
-            Layout.fillWidth: true
-            Layout.preferredHeight: implicitHeight
+            Layout.fillHeight: true
+            Layout.fillWidth: true // Почему не maximumHeight? Потому что нам нужно прижать к верху все Label, но это можно только достичь путем расширения основного текста.
 
             color: Common.Colors.designColor.darkText
             font {
@@ -95,8 +95,12 @@ Forms.TitleForm {
         states: State {
             name: "clicked"
             when: buttonExit.pressed
-            PropertyChanges { target: backRec; color: Qt.darker(backRec.color, 1.5) }
-            PropertyChanges { target: conLabel; color: Qt.darker(conLabel.color, 1.5)}
+            PropertyChanges {
+                backRec.color: Qt.darker(Common.Colors.designColor.brightPrimaryColor, 1.5)
+            }
+            PropertyChanges {
+                conLabel.color: Qt.darker(internal.buttonTextColor, 1.5)
+            }
         }
     }
 }

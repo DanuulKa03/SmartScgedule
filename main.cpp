@@ -9,15 +9,13 @@
 
 int main(int argc, char *argv[])
 {
-    // // Установка стиля для Qt Quick Controls
-    // QQuickStyle::setStyle("Material");
-
     QCoreApplication::setOrganizationName("QtProject");
     QCoreApplication::setApplicationName("SmartSchedule");
 
     QGuiApplication app(argc, argv);
 
     Q_IMPORT_QML_PLUGIN(CommonPlugin)
+    Q_IMPORT_QML_PLUGIN(ModelsPlugin)
     Q_IMPORT_QML_PLUGIN(PagesPlugin)
     Q_IMPORT_QML_PLUGIN(ComponentsPlugin)
     Q_IMPORT_QML_PLUGIN(FormsPlugin)

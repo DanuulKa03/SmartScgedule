@@ -49,16 +49,23 @@ BaseForm  {
     Label {
         id: smallDescription
 
+        z: 1
+
+        anchors {
+            bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
+
         visible: titleForm.isSmallDescription
         width: titleForm.width * 0.75
 
         color: internal.smallDescriptionColor
         font {
-            bold: true
             family: Common.Fonts.family
             pixelSize: 14 * Common.Consts.fontSize
         }
         wrapMode: Text.WordWrap
+        horizontalAlignment: Text.AlignHCenter
     }
 }
 

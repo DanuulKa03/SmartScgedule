@@ -44,5 +44,11 @@ ApplicationWindow {
         visible: applicationWindow.footerVisible
 
         height: 71 * Common.Consts.yCoord
+
+        Connections {
+            function onNext(page) {
+                contentFrame.push(page);
+            }
+        } // Connections
     }
 } // ApplicationWindow

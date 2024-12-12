@@ -10,7 +10,8 @@ QtObject {
         AUTHENTICATION_PAGE,
         MAIN_MENU_PAGE,
         WELCOME_PAGE,
-        ALARM_AND_NOTIFICATIONS
+        ALARM_AND_NOTIFICATIONS_PAGE,
+        ALARM_PAGE
         // ...
     }
 

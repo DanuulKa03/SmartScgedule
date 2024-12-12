@@ -1,2 +1,9 @@
 /build/
 /cmake-build-debug/
+/.idea/.gitignore
+/.idea/.name
+/.idea/vcs.xml
+/.idea/SmartScgedule.iml
+/.idea/QtSettings.xml
+/.idea/modules.xml
+/.idea/misc.xml

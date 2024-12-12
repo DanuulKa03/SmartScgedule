@@ -9,7 +9,8 @@ QtObject {
         SPLASH_PAGE = 0,
         AUTHENTICATION_PAGE,
         MAIN_MENU_PAGE,
-        WELCOME_PAGE
+        WELCOME_PAGE,
+        ALARM_AND_NOTIFICATIONS
         // ...
     }
 

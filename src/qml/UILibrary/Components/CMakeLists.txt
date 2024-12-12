@@ -4,6 +4,8 @@ set_target_properties(ComponentsLib PROPERTIES AUTOMOC ON)
 target_link_libraries(ComponentsLib PRIVATE Qt6::Quick Qt6::QuickControls2)
 
 set(plain_qml_files
+    Delegates/DelegateSettingsList.qml
+
     FooterPanel.qml
     TopPanel.qml
 )

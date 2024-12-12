@@ -40,7 +40,9 @@ ColumnLayout {
                     text: root.model.name
                 }
 
-                Switch {
+                SwitchDelegate {
+                    id: switchModel
+
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
 
@@ -58,6 +60,13 @@ ColumnLayout {
                     fillMode: Image.PreserveAspectFit
 
                 }
+            }
+        }
+
+        states: State {
+            when: root.model.isSwitch ?? false
+            PropertyChanges {
+                mainButton.background: null
             }
         }
     }

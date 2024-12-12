@@ -20,9 +20,12 @@ QtObject {
         case Common.Enums.PageEnumeration.WELCOME_PAGE:
             page = Qt.createComponent("Menu/WelcomePage.qml");
             break;
-        case Common.Enums.PageEnumeration.ALARM_AND_NOTIFICATIONS:
-            page = Qt.createComponent("Footer/AlarmNotifications.qml");
-            break; // Ensure this case does not fall through
+        case Common.Enums.PageEnumeration.ALARM_AND_NOTIFICATIONS_PAGE:
+            page = Qt.createComponent("Footer/AlarmNotificationsPage.qml");
+            break;
+        case Common.Enums.PageEnumeration.ALARM_PAGE:
+            page = Qt.createComponent("Footer/AlarmPage.qml");
+            break;
         default:
             console.log("---> " + pageId); // Proper logging syntax
         }

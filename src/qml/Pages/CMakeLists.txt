@@ -4,7 +4,9 @@ set_target_properties(PagesLib PROPERTIES AUTOMOC ON)
 target_link_libraries(PagesLib PRIVATE Qt6::Quick Qt6::QuickControls2)
 
 set(plain_qml_files
-    Footer/AlarmNotifications.qml
+    Footer/AlarmNotificationsPage.qml
+    Footer/AlarmPage.qml
+    Footer/AlarmPage_Form.ui.qml
 
     Login/AuthenticationPage.qml
     Login/AuthenticationPage_Form.ui.qml

@@ -26,6 +26,9 @@ QtObject {
         case Common.Enums.PageEnumeration.ALARM_PAGE:
             page = Qt.createComponent("Footer/AlarmPage.qml");
             break;
+        case Common.Enums.PageEnumeration.HOME_PAGE:
+            page = Qt.createComponent("Footer/HomePage.qml");
+            break;
         default:
             console.log("---> " + pageId); // Proper logging syntax
         }

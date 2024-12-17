@@ -11,7 +11,8 @@ QtObject {
         MAIN_MENU_PAGE,
         WELCOME_PAGE,
         ALARM_AND_NOTIFICATIONS_PAGE,
-        ALARM_PAGE
+        ALARM_PAGE,
+        HOME_PAGE
         // ...
     }
 

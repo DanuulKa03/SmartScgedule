@@ -7,6 +7,8 @@ set(plain_qml_files
     Footer/AlarmNotificationsPage.qml
     Footer/AlarmPage.qml
     Footer/AlarmPage_Form.ui.qml
+    Footer/HomePage.qml
+    Footer/HomePage_Form.ui.qml
 
     Login/AuthenticationPage.qml
     Login/AuthenticationPage_Form.ui.qml
